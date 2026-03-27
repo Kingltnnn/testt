@@ -3196,11 +3196,9 @@ end)()
 ---------------------------------------------------------------------
 -- PHẦN THAY THẾ GIAO DIỆN (DÁN TỪ ĐÂY ĐẾN HẾT SCRIPT)
 ---------------------------------------------------------------------
-local UILib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kingltnnn/testt/refs/heads/main/lib.lua"))()
+local UILib = loadstring(game:HttpGet("https://raw.githubusercontent.com/HGCassie/HUGEGames-v3/refs/heads/main/Lib.lua"))()
 local Window = UILib:CreateUI()
 Window:SetScale(1)
-
--- Thay thế hệ thống Notify của Rayfield bằng StarterGui Core
 local function Notify(params)
     game.StarterGui:SetCore("SendNotification", {
         Title = params.Title,
@@ -3300,8 +3298,8 @@ end
 local _TestingTab = Window:CreateTab('Testing')
 
 local _TestingSec = _TestingTab:Section('Testing Section')
-_TestingSec:Label('Discord: .gg/JwfXeX9gjw')
-_TestingSec:Label('Updated For Conveyor Event')
+_TestingSec:Label('Discord: .gg/ZaPPxgyEjR')
+_TestingSec:Label('Ver 1.0 beta')
 
 local _TestingWebhookSec = _TestingTab:Section('Webhook Section')
 v934(_TestingWebhookSec, 'Discord Webhook (Ping On Huge/Titanic)', 'DiscordWebhook', 'Input Discord Webhook')
@@ -3332,21 +3330,6 @@ end)
 v890(_TestingFuncSec, 'Use Selected Flag', 'UseSelectedFlag', u342, u342.ActivateFlag, 1)
 u908(_TestingFuncSec, 'Auto Daycare (Claim and Enroll)', 'AutoDayCare', PutPetsInDaycare, 2.5)
 v912(_TestingFuncSec, 'Debug Print', PrintDebugInfo)
-
--- ==============================================================
--- TAB 2: EVENT
--- ==============================================================
-local _EventTab = Window:CreateTab('Event')
-local _EventSec = _EventTab:Section('Event Section')
-
-u908(_EventSec, 'Auto Enter Easter Event', 'EnterEasterEvent', v610, 5)
-u908(_EventSec, 'Farm Last Area', 'FarmEasterLastArea', v718, 1)
-u908(_EventSec, 'Claim Easter Eggs', 'EasterClaimEgg', v659, 2.5)
-v928(_EventSec, 'Select Chest Upgrades you Want to Upgrade', 'SelectedChestsUpgrades', v726, true)
-u908(_EventSec, 'Buy Selected Chest Upgrades', 'BuySelectedChestUpgrades', v746, 1.5)
-u908(_EventSec, 'Make Chest Heroic', 'ChestHeroicMode', v747, 1)
-u908(_EventSec, 'Auto Make Egg Roulette', 'AutoEggRoulette', v689, 1)
-u908(_EventSec, 'Auto Boost Easter Basket', 'BoostGiantBasket', v678, 5)
 
 -- ==============================================================
 -- TAB 3: MAILBOX
@@ -3559,7 +3542,7 @@ end)
 -- ==============================================================
 -- TAB 5: AUTO CONSUME/OPEN
 -- ==============================================================
-local _AutoConsumeTab = Window:CreateTab('Auto Consume/Open')
+local _AutoConsumeTab = Window:CreateTab('Mics')
 
 local _FruitsSec = _AutoConsumeTab:Section('Fruits Section')
 v928(_FruitsSec, 'Select Fruits to Use', 'SelectedFruits', v974, true)
