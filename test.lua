@@ -3196,7 +3196,7 @@ end)()
 ---------------------------------------------------------------------
 -- PHẦN THAY THẾ GIAO DIỆN (DÁN TỪ ĐÂY ĐẾN HẾT SCRIPT)
 ---------------------------------------------------------------------
-local UILib = loadstring(game:HttpGet("https://raw.githubusercontent.com/HGCassie/HUGEGames-v3/refs/heads/main/Lib.lua"))()
+local UILib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kingltnnn/testt/refs/heads/main/lib.lua"))()
 local Window = UILib:CreateUI()
 Window:SetScale(1)
 
