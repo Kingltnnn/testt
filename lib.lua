@@ -2509,6 +2509,69 @@ function UILib:CreateUI()
 		table.insert(Window.tabs, Tab)
 		return Tab
 	end
+	
+	local ToggleBtn = Instance.new("ImageButton")
+	ToggleBtn.Name = "VRT_QuickToggle"
+	ToggleBtn.Parent = HugeUI
+	ToggleBtn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	ToggleBtn.BackgroundTransparency = 0.2
+	ToggleBtn.BorderSizePixel = 0
+	-- Đặt ở góc dưới bên phải màn hình
+	ToggleBtn.Position = UDim2.new(1, -60, 1, -60) 
+	ToggleBtn.Size = UDim2.new(0, 45, 0, 45)
+	ToggleBtn.Image = "rbxassetid://139164748850995"
+	ToggleBtn.ZIndex = 1000
+
+	local ToggleCorner = Instance.new("UICorner")
+	ToggleCorner.CornerRadius = UDim.new(0, 12)
+	ToggleCorner.Parent = ToggleBtn
+
+	local ToggleStroke = Instance.new("UIStroke")
+	ToggleStroke.Color = Color3.fromRGB(0, 170, 255)
+	ToggleStroke.Thickness = 1.5
+	ToggleStroke.Parent = ToggleBtn
+
+	
+	local draggingToggle = false
+	local dragInputToggle
+	local dragStartToggle
+	local startPosToggle
+	local lastClickTime = 0
+
+	ToggleBtn.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+			draggingToggle = true
+			dragStartToggle = input.Position
+			startPosToggle = ToggleBtn.Position
+			lastClickTime = tick()
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					draggingToggle = false
+					-- Nếu nhấn nhanh (dưới 0.2s) thì thực hiện ẩn/hiện UI
+					if tick() - lastClickTime < 0.2 then
+						Constraint.Visible = not Constraint.Visible
+					end
+				end
+			end)
+		end
+	end)
+
+	ToggleBtn.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInputToggle = input
+		end
+	end)
+
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if input == dragInputToggle and draggingToggle then
+			local delta = input.Position - dragStartToggle
+			ToggleBtn.Position = UDim2.new(
+				startPosToggle.X.Scale, startPosToggle.X.Offset + delta.X,
+				startPosToggle.Y.Scale, startPosToggle.Y.Offset + delta.Y
+			)
+		end
+	end)
 	function UILib:CreateWindow(Title, Version, HOL)
 		return UILib:CreateUI()
 	end
