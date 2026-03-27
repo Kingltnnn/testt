@@ -3196,9 +3196,11 @@ end)()
 ---------------------------------------------------------------------
 -- PHẦN THAY THẾ GIAO DIỆN (DÁN TỪ ĐÂY ĐẾN HẾT SCRIPT)
 ---------------------------------------------------------------------
-local UILib = loadstring(game:HttpGet("https://raw.githubusercontent.com/HGCassie/HUGEGames-v3/refs/heads/main/Lib.lua"))()
+local UILib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kingltnnn/testt/refs/heads/main/lib.lua"))()
 local Window = UILib:CreateUI()
 Window:SetScale(1)
+
+-- Thay thế hệ thống Notify của Rayfield bằng StarterGui Core
 local function Notify(params)
     game.StarterGui:SetCore("SendNotification", {
         Title = params.Title,
@@ -3299,7 +3301,7 @@ local _TestingTab = Window:CreateTab('Testing')
 
 local _TestingSec = _TestingTab:Section('Testing Section')
 _TestingSec:Label('Discord: .gg/ZaPPxgyEjR')
-_TestingSec:Label('Ver 1.0 beta')
+_TestingSec:Label('PoodleHUD Ver 1.0')
 
 local _TestingWebhookSec = _TestingTab:Section('Webhook Section')
 v934(_TestingWebhookSec, 'Discord Webhook (Ping On Huge/Titanic)', 'DiscordWebhook', 'Input Discord Webhook')
@@ -3542,7 +3544,7 @@ end)
 -- ==============================================================
 -- TAB 5: AUTO CONSUME/OPEN
 -- ==============================================================
-local _AutoConsumeTab = Window:CreateTab('Mics')
+local _AutoConsumeTab = Window:CreateTab('MICS')
 
 local _FruitsSec = _AutoConsumeTab:Section('Fruits Section')
 v928(_FruitsSec, 'Select Fruits to Use', 'SelectedFruits', v974, true)
@@ -3553,4 +3555,3 @@ v928(_LootBoxesSec, 'Select Lootboxes to Open', 'SelectedLootboxes', v975, true)
 u908(_LootBoxesSec, 'Open Selected Lootboxes', 'OpenSelectedLootboxes', v520, 1)
 v928(_LootBoxesSec, 'Select Gift Bags to Open', 'SelectedGifts', v976, true)
 u908(_LootBoxesSec, 'Open Selected GiftBags', 'OpenSelectedGifts', v529, 1)
-
